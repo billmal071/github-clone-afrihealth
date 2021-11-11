@@ -6,7 +6,7 @@ export async function fetcher(query: string, variables: any) {
     : process.env.VITE_GITHUB_TOKEN;
   const client = new GraphQLClient("https://api.github.com/graphql", {
     headers: {
-      authorization: `Bearer ${TOKEN}`,
+      authorization: `Bearer ${TOKEN ?? process.env.VITE_GITHUB_TOKEN}`,
     },
   });
 
